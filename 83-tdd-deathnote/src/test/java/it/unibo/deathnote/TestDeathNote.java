@@ -30,7 +30,7 @@ class TestDeathNote {
             this.testObject.getRule(invalidNumber);
             Assertions.fail();
         } catch (IllegalArgumentException e) {
-            Assertions.assertEquals("The rules' number starts by 1", e.getMessage());
+            Assertions.assertEquals("The rules number " + invalidNumber + " does not exist", e.getMessage());
         }
     }
 
@@ -67,7 +67,7 @@ class TestDeathNote {
             this.testObject.writeDeathCause("cutting the head");
             Assertions.fail();
         } catch (IllegalStateException e) {
-            Assertions.assertEquals("The name has to be written before the cause of death", e.getMessage());
+            Assertions.assertEquals("The name has to be written before the cause of the death", e.getMessage());
         }
         this.testObject.writeName(GABRIELETESTA);
         Assertions.assertEquals("heart attack", this.testObject.getDeathCause(GABRIELETESTA));
